@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad61a7d7fd494301ba94a37fb593c74e" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Airport" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Class" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Flight" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Invoice" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Passenger" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Plane" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PlaneSeat" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Ticket" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AirportView" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FlightView" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PNRView" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_FlightsFrom_ToAirports" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_FlightsTo_ToAirports" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PlaneSeats_ToClasses" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Flights_ToPlanes" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Tickets_ToFlights" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Invoices_ToTickets" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Tickets_ToPassengers" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PlaneSeats_ToPlanes" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Tickets_ToPlaneSeats" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.PlaneView" Width="1.5" PointX="8.375" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

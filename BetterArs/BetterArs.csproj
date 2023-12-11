@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AB57B68-2832-42F0-8171-814E4263F9A3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BetterArs</RootNamespace>
+    <AssemblyName>BetterArs</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LightInject, Version=6.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.6.6.4\lib\net462\LightInject.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Airport.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AirportView.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ArsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ArsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ArsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Class.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Flight.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FlightView.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Invoice.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Passenger.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Plane.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PlaneSeat.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PlaneView.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PNRView.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ticket.cs">
+      <DependentUpon>ArsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presenters\AvailabilityPresenter.cs" />
+    <Compile Include="Presenters\BookPresenter.cs" />
+    <Compile Include="Presenters\EditFlightPresenter.cs" />
+    <Compile Include="Services\AirportSelectorService.cs" />
+    <Compile Include="Services\Interfaces\IAirportSelectorService.cs" />
+    <Compile Include="Services\Interfaces\IMessageService.cs" />
+    <Compile Include="Services\MessageService.cs" />
+    <Compile Include="Utility\IPresenter.cs" />
+    <Compile Include="Utility\Ioc\ApplicationController.cs" />
+    <Compile Include="Utility\Ioc\IApplicationController.cs" />
+    <Compile Include="Utility\Ioc\IContainer.cs" />
+    <Compile Include="Utility\Ioc\Impl\LightInjectAdapter.cs" />
+    <Compile Include="Utility\Validators\EmailValidator.cs" />
+    <Compile Include="Utility\Validators\IValidator.cs" />
+    <Compile Include="Utility\Validators\Lexer.cs" />
+    <Compile Include="Views\EditPlaneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditPlaneForm.Designer.cs">
+      <DependentUpon>EditPlaneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AvailabilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AvailabilityForm.Designer.cs">
+      <DependentUpon>AvailabilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BookForm.Designer.cs">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditFlightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditFlightForm.Designer.cs">
+      <DependentUpon>EditFlightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interfaces\IAvailabilityView.cs" />
+    <Compile Include="Views\Interfaces\IBookView.cs" />
+    <Compile Include="Utility\IView.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AirportSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AirportSelectorForm.Designer.cs">
+      <DependentUpon>AirportSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interfaces\IEditFlightView.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\EditPlaneForm.resx">
+      <DependentUpon>EditPlaneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AvailabilityForm.resx">
+      <DependentUpon>AvailabilityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BookForm.resx">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditFlightForm.resx">
+      <DependentUpon>EditFlightForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AirportSelectorForm.resx">
+      <DependentUpon>AirportSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\ArsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="Model\ArsModel.edmx.diagram">
+      <DependentUpon>ArsModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\ArsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArsModel.edmx</DependentUpon>
+      <LastGenOutput>ArsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ArsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArsModel.edmx</DependentUpon>
+      <LastGenOutput>ArsModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="simplars.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="simplars_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>simplars.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
