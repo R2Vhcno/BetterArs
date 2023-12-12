@@ -52,8 +52,8 @@
             this._editButton = new System.Windows.Forms.Button();
             this._deleteButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this._showPlanesButton = new System.Windows.Forms.Button();
             this._showAllButton = new System.Windows.Forms.Button();
+            this._pnrButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._flightsGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -322,7 +322,7 @@
             this.flowLayoutPanel1.Controls.Add(this._editButton);
             this.flowLayoutPanel1.Controls.Add(this._deleteButton);
             this.flowLayoutPanel1.Controls.Add(this.label6);
-            this.flowLayoutPanel1.Controls.Add(this._showPlanesButton);
+            this.flowLayoutPanel1.Controls.Add(this._pnrButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 465);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(791, 29);
@@ -381,17 +381,6 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "|";
             // 
-            // _showPlanesButton
-            // 
-            this._showPlanesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._showPlanesButton.Location = new System.Drawing.Point(526, 3);
-            this._showPlanesButton.Name = "_showPlanesButton";
-            this._showPlanesButton.Size = new System.Drawing.Size(110, 23);
-            this._showPlanesButton.TabIndex = 15;
-            this._showPlanesButton.Text = "Авиапарк";
-            this._showPlanesButton.UseVisualStyleBackColor = true;
-            this._showPlanesButton.Click += new System.EventHandler(this._showPlanesButton_Click);
-            // 
             // _showAllButton
             // 
             this._showAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -402,6 +391,16 @@
             this._showAllButton.Text = "Показать все";
             this._showAllButton.UseVisualStyleBackColor = true;
             this._showAllButton.Click += new System.EventHandler(this._showAllButton_Click);
+            // 
+            // _pnrButton
+            // 
+            this._pnrButton.Location = new System.Drawing.Point(526, 3);
+            this._pnrButton.Name = "_pnrButton";
+            this._pnrButton.Size = new System.Drawing.Size(75, 23);
+            this._pnrButton.TabIndex = 15;
+            this._pnrButton.Text = "PNR";
+            this._pnrButton.UseVisualStyleBackColor = true;
+            this._pnrButton.Click += new System.EventHandler(this._pnrButton_Click);
             // 
             // AvailabilityForm
             // 
@@ -414,7 +413,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this._flightsGridView);
             this.Name = "AvailabilityForm";
-            this.Text = "Доступность рейсов - АИС Авиалиния";
+            this.Text = "АИС Авиалиния | Рейсы";
             this.Load += new System.EventHandler(this.AvailabilityForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._flightsGridView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -459,7 +458,7 @@
         private System.Windows.Forms.Button _editButton;
         private System.Windows.Forms.Button _deleteButton;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button _showPlanesButton;
         private System.Windows.Forms.Button _showAllButton;
+        private System.Windows.Forms.Button _pnrButton;
     }
 }

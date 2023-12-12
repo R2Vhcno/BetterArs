@@ -207,5 +207,9 @@ namespace BetterArs.Views {
         private void _seatsClassesComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             OnSeatClassChanged();
         }
+
+        public void SetPassengerId(int id) {
+            _passengerIdTextBox.Text = id.ToString();
+        }
     }
 }

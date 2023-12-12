@@ -35,5 +35,7 @@ namespace BetterArs.Views.Interfaces {
         event Action OnCancelPressed;
         event Action OnBookAndContinuePressed;
         event Action OnBookPressed;
+
+        void SetPassengerId(int id);
     }
 }

@@ -58,7 +58,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="PlaneSeats">
           <Key>
@@ -124,11 +124,28 @@
 предупреждение 6002: В таблице или представлении "D:\ПРОЕКТЫ\BETTERARS\BETTERARS\SIMPLARS.MDF.dbo.PNRView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="PNRView">
           <Key>
+            <PropertyRef Name="Departure Time" />
             <PropertyRef Name="Name" />
+            <PropertyRef Name="PassengerId" />
+            <PropertyRef Name="TicketId" />
+            <PropertyRef Name="FlightId" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="SurName" />
+            <PropertyRef Name="LastName" />
           </Key>
+          <Property Name="Origin" Type="nchar" MaxLength="3" />
+          <Property Name="Destination" Type="nchar" MaxLength="3" />
+          <Property Name="Departure Time" Type="datetime" Nullable="false" />
+          <Property Name="Seat" Type="nchar" MaxLength="3" />
           <Property Name="Name" Type="nvarchar" MaxLength="92" Nullable="false" />
           <Property Name="Contact Info" Type="nvarchar" MaxLength="30" />
           <Property Name="Birth Date" Type="date" />
+          <Property Name="PassengerId" Type="int" Nullable="false" />
+          <Property Name="TicketId" Type="int" Nullable="false" />
+          <Property Name="FlightId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <Association Name="FK_Flights_ToPlanes">
           <End Role="Planes" Type="Self.Planes" Multiplicity="1" />
@@ -282,9 +299,19 @@
           </EntitySet>
           <EntitySet Name="PNRView" EntityType="Self.PNRView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [PNRView].[Origin] AS [Origin], 
+    [PNRView].[Destination] AS [Destination], 
+    [PNRView].[Departure Time] AS [Departure Time], 
+    [PNRView].[Seat] AS [Seat], 
     [PNRView].[Name] AS [Name], 
     [PNRView].[Contact Info] AS [Contact Info], 
-    [PNRView].[Birth Date] AS [Birth Date]
+    [PNRView].[Birth Date] AS [Birth Date], 
+    [PNRView].[PassengerId] AS [PassengerId], 
+    [PNRView].[TicketId] AS [TicketId], 
+    [PNRView].[FlightId] AS [FlightId], 
+    [PNRView].[FirstName] AS [FirstName], 
+    [PNRView].[SurName] AS [SurName], 
+    [PNRView].[LastName] AS [LastName]
     FROM [dbo].[PNRView] AS [PNRView]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Flights_ToPlanes" Association="Self.FK_Flights_ToPlanes">
@@ -390,7 +417,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Flights" Relationship="Self.FK_Flights_ToPlanes" FromRole="Planes" ToRole="Flights" />
           <NavigationProperty Name="PlaneSeats" Relationship="Self.FK_PlaneSeats_ToPlanes" FromRole="Planes" ToRole="PlaneSeats" />
         </EntityType>
@@ -449,10 +476,27 @@
         <EntityType Name="PNRView">
           <Key>
             <PropertyRef Name="Name" />
+            <PropertyRef Name="Departure_Time" />
+            <PropertyRef Name="PassengerId" />
+            <PropertyRef Name="TicketId" />
+            <PropertyRef Name="FlightId" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="SurName" />
+            <PropertyRef Name="LastName" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="92" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Contact_Info" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Birth_Date" Type="DateTime" Precision="0" />
+          <Property Name="Origin" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Destination" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Departure_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Seat" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="PassengerId" Type="Int32" Nullable="false" />
+          <Property Name="TicketId" Type="Int32" Nullable="false" />
+          <Property Name="FlightId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SurName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_FlightsFrom_ToAirports">
           <End Role="Airports" Type="Self.Airport" Multiplicity="1" />
@@ -742,6 +786,16 @@
           <EntitySetMapping Name="PNRsView">
             <EntityTypeMapping TypeName="Model.PNRView">
               <MappingFragment StoreEntitySet="PNRView">
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+                <ScalarProperty Name="Seat" ColumnName="Seat" />
+                <ScalarProperty Name="Departure_Time" ColumnName="Departure Time" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Contact_Info" ColumnName="Contact Info" />
                 <ScalarProperty Name="Birth_Date" ColumnName="Birth Date" />

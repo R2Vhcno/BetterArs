@@ -19,10 +19,12 @@ namespace BetterArs {
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Application.Run(new MainForm()); // Not needed in MVP
+
             var controller = new ApplicationController(new LightInjectAdapter())
                 .RegisterView<IAvailabilityView, AvailabilityForm>()
                 .RegisterView<IBookView, BookForm>()
                 .RegisterView<IEditFlightView, EditFlightForm>()
+                .RegisterView<ITicketsTableView, TicketsTableForm>()
                 .RegisterService<IMessageService, MessageService>()
                 .RegisterService<IAirportSelectorService, AirportSelectorService>()
                 .RegisterInstance(new ApplicationContext());

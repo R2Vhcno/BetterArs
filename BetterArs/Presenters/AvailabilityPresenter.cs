@@ -49,7 +49,13 @@ namespace BetterArs.Presenters {
             _view.EditFlightButtonPressed += EditFlightButtonPressed;
             _view.RemoveFlightButtonPressed += RemoveFlightButtonPressed;
 
+            _view.ViewPNRTable += ViewPNRTable;
+
             Refresh();
+        }
+
+        private void ViewPNRTable() {
+            _controller.Run<TicketsTablePresenter>();
         }
 
         private void EditFlightButtonPressed() {
@@ -102,6 +108,8 @@ namespace BetterArs.Presenters {
             }
 
             _controller.Run<BookPresenter, int>(_view.SelectedFlightId);
+
+            Refresh();
         }
 
         private void SearchButtonPressed() {

@@ -17,5 +17,15 @@ namespace BetterArs.Model
         public string Name { get; set; }
         public string Contact_Info { get; set; }
         public Nullable<System.DateTime> Birth_Date { get; set; }
+        public string Origin { get; set; }
+        public string Destination { get; set; }
+        public System.DateTime Departure_Time { get; set; }
+        public string Seat { get; set; }
+        public int PassengerId { get; set; }
+        public int TicketId { get; set; }
+        public int FlightId { get; set; }
+        public string FirstName { get; set; }
+        public string SurName { get; set; }
+        public string LastName { get; set; }
     }
 }

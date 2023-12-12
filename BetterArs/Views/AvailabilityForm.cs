@@ -82,7 +82,7 @@ namespace BetterArs.Views {
         public event Action NewFlightButtonPressed;
         public event Action EditFlightButtonPressed;
         public event Action RemoveFlightButtonPressed;
-        public event Action ViewPlanesTable;
+        public event Action ViewPNRTable;
 
         public int SelectedFlightId {
             get {
@@ -153,8 +153,8 @@ namespace BetterArs.Views {
             RemoveFlightButtonPressed();
         }
 
-        private void _showPlanesButton_Click(object sender, EventArgs e) {
-            ViewPlanesTable();
+        private void _pnrButton_Click(object sender, EventArgs e) {
+            ViewPNRTable();
         }
     }
 }

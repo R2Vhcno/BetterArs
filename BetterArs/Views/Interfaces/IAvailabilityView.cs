@@ -35,6 +35,6 @@ namespace BetterArs.Views.Interfaces {
         event Action EditFlightButtonPressed;
         event Action RemoveFlightButtonPressed;
 
-        event Action ViewPlanesTable;
+        event Action ViewPNRTable;
     }
 }

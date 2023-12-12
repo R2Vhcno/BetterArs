@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this._passengerPhoneTextBox = new System.Windows.Forms.TextBox();
             this._passengerEmailTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,11 +52,10 @@
             this._cancelButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this._seatsDataGridView = new System.Windows.Forms.DataGridView();
-            this._seatsClassesComboBox = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this._passengerPhoneTextBox = new System.Windows.Forms.TextBox();
             this.SeatName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SeatFare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._seatsClassesComboBox = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -104,6 +104,15 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(486, 26);
             this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // _passengerPhoneTextBox
+            // 
+            this._passengerPhoneTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._passengerPhoneTextBox.Location = new System.Drawing.Point(64, 3);
+            this._passengerPhoneTextBox.Name = "_passengerPhoneTextBox";
+            this._passengerPhoneTextBox.Size = new System.Drawing.Size(172, 20);
+            this._passengerPhoneTextBox.TabIndex = 8;
+            this._passengerPhoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this._passengerPhoneTextBox_Validating);
             // 
             // _passengerEmailTextBox
             // 
@@ -398,6 +407,20 @@
             this._seatsDataGridView.Size = new System.Drawing.Size(523, 177);
             this._seatsDataGridView.TabIndex = 2;
             // 
+            // SeatName
+            // 
+            this.SeatName.DataPropertyName = "Name";
+            this.SeatName.HeaderText = "Имя";
+            this.SeatName.Name = "SeatName";
+            this.SeatName.ReadOnly = true;
+            // 
+            // SeatFare
+            // 
+            this.SeatFare.DataPropertyName = "Fare";
+            this.SeatFare.HeaderText = "Такса";
+            this.SeatFare.Name = "SeatFare";
+            this.SeatFare.ReadOnly = true;
+            // 
             // _seatsClassesComboBox
             // 
             this._seatsClassesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -421,29 +444,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Класс:";
             // 
-            // _passengerPhoneTextBox
-            // 
-            this._passengerPhoneTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._passengerPhoneTextBox.Location = new System.Drawing.Point(64, 3);
-            this._passengerPhoneTextBox.Name = "_passengerPhoneTextBox";
-            this._passengerPhoneTextBox.Size = new System.Drawing.Size(172, 20);
-            this._passengerPhoneTextBox.TabIndex = 8;
-            this._passengerPhoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this._passengerPhoneTextBox_Validating);
-            // 
-            // SeatName
-            // 
-            this.SeatName.DataPropertyName = "Name";
-            this.SeatName.HeaderText = "Имя";
-            this.SeatName.Name = "SeatName";
-            this.SeatName.ReadOnly = true;
-            // 
-            // SeatFare
-            // 
-            this.SeatFare.DataPropertyName = "Fare";
-            this.SeatFare.HeaderText = "Такса";
-            this.SeatFare.Name = "SeatFare";
-            this.SeatFare.ReadOnly = true;
-            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,6 +458,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BookForm";
             this.Text = "Оформление билета";
             this.groupBox1.ResumeLayout(false);

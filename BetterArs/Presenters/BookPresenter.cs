@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 namespace BetterArs.Presenters {
     public class BookPresenter : IPresenter<int> {
-        private readonly ArsContext _arsContext;
         private readonly IBookView _view;
 
         private Flight _selectedFlight;
@@ -23,15 +22,20 @@ namespace BetterArs.Presenters {
             _view = view;
             _messageService = messageService;
 
-            _arsContext = new ArsContext();
-
             _view.OnPassengerIdChanged += OnPassengerIdChanged;
             _view.OnSeatClassChanged += OnSeatClassChanged;
 
+            _view.OnCancelPressed += OnCancelPressed;
+
             _view.OnBookPressed += OnBookPressed;
+            _view.OnBookAndContinuePressed += OnBookAndContinuePressed;
         }
 
-        private void OnBookPressed() {
+        private void OnCancelPressed() {
+            _view.Close();
+        }
+
+        private void OnBookAndContinuePressed() {
             if (_view.SeatId == 0) {
                 _messageService.PrintError("Не выбрано место");
 
@@ -50,29 +54,45 @@ namespace BetterArs.Presenters {
                 return;
             }
 
-            Passenger passenger;
+            using (ArsContext db = new ArsContext()) {
+                Passenger passenger;
 
-            if (_view.PNRFromDataBase) {
-                passenger = _arsContext.Passengers.Find(_view.PassengerId);
-            } else {
-                var newPassenger = new Passenger();
+                db.Passengers.Load();
+                db.Tickets.Load();
 
-                newPassenger.FirstName = _view.PassengerName;
-                newPassenger.SurName = _view.PassengerSurname;
-                newPassenger.LastName = _view.PassengerLastName;
-                newPassenger.Phone = _view.PassengerPhone;
-                newPassenger.Email = _view.PassengerEmail;
+                if (_view.PNRFromDataBase) {
+                    passenger = db.Passengers.Find(_view.PassengerId);
+                } else {
+                    var newPassenger = new Passenger();
 
-                passenger = _arsContext.Passengers.Add(newPassenger);
+                    newPassenger.FirstName = _view.PassengerName;
+                    newPassenger.SurName = _view.PassengerSurname;
+                    newPassenger.LastName = _view.PassengerLastName;
+                    newPassenger.Phone = _view.PassengerPhone;
+                    newPassenger.Email = _view.PassengerEmail;
+
+                    passenger = db.Passengers.Add(newPassenger);
+                    db.SaveChanges();
+
+                    _view.PNRFromDataBase = true;
+
+                    _view.SetPassengerId(passenger.Id);
+                }
+
+                db.Tickets.Add(new Ticket() {
+                    FlightId = _selectedFlight.Id,
+                    PlaneSeatId = _view.SeatId,
+                    PassengerId = passenger.Id,
+                });
+
+                db.SaveChanges();
             }
+        }
 
-            _arsContext.Tickets.Add(new Ticket() {
-                FlightId = _selectedFlight.Id,
-                PlaneSeatId = _view.SeatId,
-                PassengerId = passenger.Id,
-            });
+        private void OnBookPressed() {
+            OnBookAndContinuePressed();
 
-            _arsContext.SaveChanges();
+            _view.Close();
         }
 
         private void OnSeatClassChanged() {
@@ -80,7 +100,11 @@ namespace BetterArs.Presenters {
         }
 
         private void OnPassengerIdChanged() {
-            var passenger = _arsContext.Passengers.Find(_view.PassengerId);
+            Passenger passenger;
+
+            using (ArsContext db = new ArsContext()) {
+                passenger = db.Passengers.Find(_view.PassengerId);
+            }
 
             if (passenger is null) {
                 _view.PNRFromDataBase = false;
@@ -98,15 +122,17 @@ namespace BetterArs.Presenters {
         }
 
         public void Refresh() {
-            _view.SeatsClassesDataSource = _arsContext.Classes.ToList();
+            using (ArsContext db = new ArsContext()) {
+                _view.SeatsClassesDataSource = db.Classes.ToList();
 
-            _view.OriginName = (from origin in _arsContext.Airports
-                                where origin.Id == _selectedFlight.OriginId
-                                select origin).First().LocalCode;
+                _view.OriginName = (from origin in db.Airports
+                                    where origin.Id == _selectedFlight.OriginId
+                                    select origin).First().LocalCode;
 
-            _view.DestinationName = (from destination in _arsContext.Airports
-                                     where destination.Id == _selectedFlight.DestinationId
-                                     select destination).First().LocalCode;
+                _view.DestinationName = (from destination in db.Airports
+                                         where destination.Id == _selectedFlight.DestinationId
+                                         select destination).First().LocalCode;
+            }
 
             DisplayAvailableSeats();
         }
@@ -114,9 +140,9 @@ namespace BetterArs.Presenters {
         public void Run(int id) {
             _view.FLightId = id;
 
-            _selectedFlight = (from flight in _arsContext.Flights
-                               where flight.Id == id
-                               select flight).First();
+            using (ArsContext db = new ArsContext()) {
+                _selectedFlight = db.Flights.Find(id);
+            }
 
             Refresh();
 
@@ -124,13 +150,15 @@ namespace BetterArs.Presenters {
         }
 
         private void DisplayAvailableSeats() {
-            var seatsUnfiltered = (from seat in _arsContext.PlaneSeats
-                                   where seat.PlaneId == _selectedFlight.PlaneId && seat.ClassId == _view.SeatClass
-                                   select seat).ToList();
+            using (ArsContext db = new ArsContext()) {
+                var seatsUnfiltered = (from seat in db.PlaneSeats
+                                       where seat.PlaneId == _selectedFlight.PlaneId && seat.ClassId == _view.SeatClass
+                                       select seat).ToList();
 
-            _view.SeatsDataSource = (from seat in seatsUnfiltered
-                                     where !_arsContext.Tickets.Any(ticket => ticket.PlaneSeatId == seat.Id)
-                                     select seat).ToList();
+                _view.SeatsDataSource = (from seat in seatsUnfiltered
+                                         where !db.Tickets.Any(ticket => ticket.PlaneSeatId == seat.Id && ticket.FlightId == _selectedFlight.Id)
+                                         select seat).ToList();
+            }
         }
     }
 }
