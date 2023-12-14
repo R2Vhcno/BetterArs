@@ -24,18 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this._pnrGridView = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this._searchButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this._surnameTextBox = new System.Windows.Forms.TextBox();
-            this._nameTextBox = new System.Windows.Forms.TextBox();
-            this._lastnameTextBox = new System.Windows.Forms.TextBox();
-            this._editButton = new System.Windows.Forms.Button();
-            this._deleteButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this._intelligentCleaningButton = new System.Windows.Forms.Button();
             this._originColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._destinationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._departureDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +31,18 @@
             this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._contactsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._birthdateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this._surnameTextBox = new System.Windows.Forms.TextBox();
+            this._nameTextBox = new System.Windows.Forms.TextBox();
+            this._lastnameTextBox = new System.Windows.Forms.TextBox();
+            this._searchButton = new System.Windows.Forms.Button();
+            this._editButton = new System.Windows.Forms.Button();
+            this._deleteButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this._intelligentCleaningButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._pnrGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,55 @@
             this._pnrGridView.Size = new System.Drawing.Size(776, 365);
             this._pnrGridView.TabIndex = 0;
             // 
+            // _originColumn
+            // 
+            this._originColumn.DataPropertyName = "Origin";
+            this._originColumn.HeaderText = "Аэропорт отправления";
+            this._originColumn.Name = "_originColumn";
+            this._originColumn.ReadOnly = true;
+            // 
+            // _destinationColumn
+            // 
+            this._destinationColumn.DataPropertyName = "Destination";
+            this._destinationColumn.HeaderText = "Аэропорт прибытия";
+            this._destinationColumn.Name = "_destinationColumn";
+            this._destinationColumn.ReadOnly = true;
+            // 
+            // _departureDateColumn
+            // 
+            this._departureDateColumn.DataPropertyName = "Departure_Time";
+            this._departureDateColumn.HeaderText = "Врямя отправления";
+            this._departureDateColumn.Name = "_departureDateColumn";
+            this._departureDateColumn.ReadOnly = true;
+            // 
+            // _seatColumn
+            // 
+            this._seatColumn.DataPropertyName = "Seat";
+            this._seatColumn.HeaderText = "Место";
+            this._seatColumn.Name = "_seatColumn";
+            this._seatColumn.ReadOnly = true;
+            // 
+            // _nameColumn
+            // 
+            this._nameColumn.DataPropertyName = "Name";
+            this._nameColumn.HeaderText = "Пассажир";
+            this._nameColumn.Name = "_nameColumn";
+            this._nameColumn.ReadOnly = true;
+            // 
+            // _contactsColumn
+            // 
+            this._contactsColumn.DataPropertyName = "Contact_Info";
+            this._contactsColumn.HeaderText = "Контакты";
+            this._contactsColumn.Name = "_contactsColumn";
+            this._contactsColumn.ReadOnly = true;
+            // 
+            // _birthdateColumn
+            // 
+            this._birthdateColumn.DataPropertyName = "Birth_Date";
+            this._birthdateColumn.HeaderText = "Дата рождения";
+            this._birthdateColumn.Name = "_birthdateColumn";
+            this._birthdateColumn.ReadOnly = true;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -93,17 +142,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(695, 26);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // _searchButton
-            // 
-            this._searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._searchButton.Location = new System.Drawing.Point(713, 13);
-            this._searchButton.Name = "_searchButton";
-            this._searchButton.Size = new System.Drawing.Size(75, 23);
-            this._searchButton.TabIndex = 2;
-            this._searchButton.Text = "Поиск";
-            this._searchButton.UseVisualStyleBackColor = true;
-            this._searchButton.Click += new System.EventHandler(this._searchButton_Click);
             // 
             // label1
             // 
@@ -164,6 +202,17 @@
             this._lastnameTextBox.TabIndex = 5;
             this._lastnameTextBox.Text = "*";
             // 
+            // _searchButton
+            // 
+            this._searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._searchButton.Location = new System.Drawing.Point(713, 13);
+            this._searchButton.Name = "_searchButton";
+            this._searchButton.Size = new System.Drawing.Size(75, 23);
+            this._searchButton.TabIndex = 2;
+            this._searchButton.Text = "Поиск";
+            this._searchButton.UseVisualStyleBackColor = true;
+            this._searchButton.Click += new System.EventHandler(this._searchButton_Click);
+            // 
             // _editButton
             // 
             this._editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -206,55 +255,6 @@
             this._intelligentCleaningButton.UseVisualStyleBackColor = true;
             this._intelligentCleaningButton.Click += new System.EventHandler(this._intelligentCleaningButton_Click);
             // 
-            // _originColumn
-            // 
-            this._originColumn.DataPropertyName = "Origin";
-            this._originColumn.HeaderText = "Аэропорт отправления";
-            this._originColumn.Name = "_originColumn";
-            this._originColumn.ReadOnly = true;
-            // 
-            // _destinationColumn
-            // 
-            this._destinationColumn.DataPropertyName = "Destination";
-            this._destinationColumn.HeaderText = "Аэропорт прибытия";
-            this._destinationColumn.Name = "_destinationColumn";
-            this._destinationColumn.ReadOnly = true;
-            // 
-            // _departureDateColumn
-            // 
-            this._departureDateColumn.DataPropertyName = "Departure_Time";
-            this._departureDateColumn.HeaderText = "Врямя отправления";
-            this._departureDateColumn.Name = "_departureDateColumn";
-            this._departureDateColumn.ReadOnly = true;
-            // 
-            // _seatColumn
-            // 
-            this._seatColumn.DataPropertyName = "Seat";
-            this._seatColumn.HeaderText = "Место";
-            this._seatColumn.Name = "_seatColumn";
-            this._seatColumn.ReadOnly = true;
-            // 
-            // _nameColumn
-            // 
-            this._nameColumn.DataPropertyName = "Name";
-            this._nameColumn.HeaderText = "Пассажир";
-            this._nameColumn.Name = "_nameColumn";
-            this._nameColumn.ReadOnly = true;
-            // 
-            // _contactsColumn
-            // 
-            this._contactsColumn.DataPropertyName = "Contact_Info";
-            this._contactsColumn.HeaderText = "Контакты";
-            this._contactsColumn.Name = "_contactsColumn";
-            this._contactsColumn.ReadOnly = true;
-            // 
-            // _birthdateColumn
-            // 
-            this._birthdateColumn.DataPropertyName = "Birth_Date";
-            this._birthdateColumn.HeaderText = "Дата рождения";
-            this._birthdateColumn.Name = "_birthdateColumn";
-            this._birthdateColumn.ReadOnly = true;
-            // 
             // TicketsTableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,6 +268,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this._pnrGridView);
             this.Name = "TicketsTableForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "АИС Авиалиния | PNR";
             this.Load += new System.EventHandler(this.TicketsTableForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._pnrGridView)).EndInit();

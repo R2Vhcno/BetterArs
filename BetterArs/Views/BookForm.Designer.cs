@@ -461,6 +461,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BookForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Оформление билета";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

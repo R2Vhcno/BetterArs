@@ -56,6 +56,8 @@ namespace BetterArs.Presenters {
 
         private void ViewPNRTable() {
             _controller.Run<TicketsTablePresenter>();
+
+            Refresh();
         }
 
         private void EditFlightButtonPressed() {
@@ -72,7 +74,43 @@ namespace BetterArs.Presenters {
 
         private void RemoveFlightButtonPressed() {
             using (ArsContext db = new ArsContext()) {
-                db.Flights.Remove(db.Flights.Find(_view.SelectedFlightId));
+                var flightDoDelete = db.Flights.Find(_view.SelectedFlightId);
+
+                // Check if there are tickets referencing flight
+                var referencingTickets = from ticket in db.Tickets
+                                         where ticket.FlightId == flightDoDelete.Id
+                                         select ticket;
+
+                if (referencingTickets.Any()) {
+                    string ticketString = "билет";
+                    int ticketCount = referencingTickets.Count();
+
+                    if (ticketCount > 0) {
+                        if (ticketCount % 10 <= 5 && (ticketCount < 10 || ticketCount >= 20) && ticketCount % 10 != 0) {
+                            ticketString = "билета";
+                        } else {
+                            ticketString = "билетов";
+                        }
+                    }
+
+                    var result = MessageBox.Show($"Для совершения этого действия, требуется удалить {ticketCount} {ticketString}, оформленных на этот рейс.",
+                                    "Ошибка при удалении рейса",
+                                    MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                    if (result == DialogResult.Cancel) return;
+
+                    result = MessageBox.Show("Вы уверены, что хотите удалить оформленные на этот рейс билеты?",
+                                "Подтверждение действия",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    
+                    if (result == DialogResult.No) return;
+
+                    foreach (var ticket in referencingTickets) {
+                        db.Tickets.Remove(ticket);
+                    }
+                }
+
+                db.Flights.Remove(flightDoDelete);
 
                 db.SaveChanges();
 

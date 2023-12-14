@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BetterArs.Presenters {
     public class TicketsTablePresenter : IPresenter {
@@ -19,6 +20,35 @@ namespace BetterArs.Presenters {
             _view = view;
 
             _view.SearchButtonPressed += SearchButtonPressed;
+            _view.DeleteButtonPressed += DeleteButtonPressed;
+            _view.CleanupButtonPressed += CleanupButtonPressed;
+            _view.EditButtonPressed += EditButtonPressed;
+        }
+
+        private void EditButtonPressed() {
+            if (_view.SelectedPNR is null) return;
+
+            _controller.Run<EditPNRPresenter, PNRView>(_view.SelectedPNR);
+
+            Refresh();
+        }
+
+        private void CleanupButtonPressed() {
+            MessageBox.Show("Я пока ёще не уверен, стоит ли добавлять подобный функционал, и где разместить эту кнопку");
+        }
+
+        private void DeleteButtonPressed() {
+            using (ArsContext db = new ArsContext()) {
+                var ticketToRemove = db.Tickets.Find(_view.SelectedPNR.TicketId);
+
+                if (ticketToRemove != null) {
+                    db.Tickets.Remove(ticketToRemove);
+
+                    db.SaveChanges();
+
+                    Refresh();
+                }
+            }
         }
 
         private void SearchButtonPressed() {

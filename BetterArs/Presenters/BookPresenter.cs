@@ -79,10 +79,16 @@ namespace BetterArs.Presenters {
                     _view.SetPassengerId(passenger.Id);
                 }
 
-                db.Tickets.Add(new Ticket() {
+                var ticket = db.Tickets.Add(new Ticket() {
                     FlightId = _selectedFlight.Id,
                     PlaneSeatId = _view.SeatId,
                     PassengerId = passenger.Id,
+                });
+
+                db.SaveChanges();
+
+                db.Invoices.Add(new Invoice() {
+                    TicketId = ticket.Id,
                 });
 
                 db.SaveChanges();

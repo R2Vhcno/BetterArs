@@ -132,6 +132,7 @@
     <Compile Include="Presenters\AvailabilityPresenter.cs" />
     <Compile Include="Presenters\BookPresenter.cs" />
     <Compile Include="Presenters\EditFlightPresenter.cs" />
+    <Compile Include="Presenters\EditPNRPresenter.cs" />
     <Compile Include="Presenters\TicketsTablePresenter.cs" />
     <Compile Include="Services\AirportSelectorService.cs" />
     <Compile Include="Services\Interfaces\IAirportSelectorService.cs" />
@@ -169,6 +170,12 @@
     <Compile Include="Views\EditFlightForm.Designer.cs">
       <DependentUpon>EditFlightForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditPNRForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditPNRForm.Designer.cs">
+      <DependentUpon>EditPNRForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Interfaces\IAvailabilityView.cs" />
     <Compile Include="Views\Interfaces\IBookView.cs" />
     <Compile Include="Utility\IView.cs" />
@@ -181,6 +188,7 @@
       <DependentUpon>AirportSelectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Interfaces\IEditFlightView.cs" />
+    <Compile Include="Views\Interfaces\IEditPNRView.cs" />
     <Compile Include="Views\Interfaces\ITicketsTableView.cs" />
     <Compile Include="Views\TicketsTableForm.cs">
       <SubType>Form</SubType>
@@ -211,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AirportSelectorForm.resx">
       <DependentUpon>AirportSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditPNRForm.resx">
+      <DependentUpon>EditPNRForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TicketsTableForm.resx">
       <DependentUpon>TicketsTableForm.cs</DependentUpon>

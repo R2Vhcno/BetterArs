@@ -40,12 +40,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this._planeNameTextBox = new System.Windows.Forms.TextBox();
             this._planesGridView = new System.Windows.Forms.DataGridView();
+            this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._availableSeatcColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._departureTimePicker = new System.Windows.Forms.MaskedTextBox();
             this._flightDurationPicker = new System.Windows.Forms.MaskedTextBox();
-            this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._availableSeatcColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._planesGridView)).BeginInit();
@@ -245,6 +245,20 @@
             this._planesGridView.Size = new System.Drawing.Size(508, 111);
             this._planesGridView.TabIndex = 0;
             // 
+            // _nameColumn
+            // 
+            this._nameColumn.DataPropertyName = "Name";
+            this._nameColumn.HeaderText = "Название";
+            this._nameColumn.Name = "_nameColumn";
+            this._nameColumn.ReadOnly = true;
+            // 
+            // _availableSeatcColumn
+            // 
+            this._availableSeatcColumn.DataPropertyName = "AvailableSeats";
+            this._availableSeatcColumn.HeaderText = "Кол-во мест";
+            this._availableSeatcColumn.Name = "_availableSeatcColumn";
+            this._availableSeatcColumn.ReadOnly = true;
+            // 
             // _okButton
             // 
             this._okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -285,20 +299,6 @@
             this._flightDurationPicker.TabIndex = 13;
             this._flightDurationPicker.ValidatingType = typeof(System.DateTime);
             // 
-            // _nameColumn
-            // 
-            this._nameColumn.DataPropertyName = "Name";
-            this._nameColumn.HeaderText = "Название";
-            this._nameColumn.Name = "_nameColumn";
-            this._nameColumn.ReadOnly = true;
-            // 
-            // _availableSeatcColumn
-            // 
-            this._availableSeatcColumn.DataPropertyName = "AvailableSeats";
-            this._availableSeatcColumn.HeaderText = "Кол-во мест";
-            this._availableSeatcColumn.Name = "_availableSeatcColumn";
-            this._availableSeatcColumn.ReadOnly = true;
-            // 
             // EditFlightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +315,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditFlightForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Редактирование информации о рейсе";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

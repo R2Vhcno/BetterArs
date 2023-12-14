@@ -25,6 +25,7 @@ namespace BetterArs {
                 .RegisterView<IBookView, BookForm>()
                 .RegisterView<IEditFlightView, EditFlightForm>()
                 .RegisterView<ITicketsTableView, TicketsTableForm>()
+                .RegisterView<IEditPNRView, EditPNRForm>()
                 .RegisterService<IMessageService, MessageService>()
                 .RegisterService<IAirportSelectorService, AirportSelectorService>()
                 .RegisterInstance(new ApplicationContext());
