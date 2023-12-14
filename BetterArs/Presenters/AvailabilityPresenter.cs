@@ -17,7 +17,7 @@ namespace BetterArs.Presenters {
         private readonly IApplicationController _controller;
         private readonly IAvailabilityView _view;
 
-        //private readonly IMessageService _messageService;
+        private readonly IMessageService _messageService;
         private readonly IAirportSelectorService _airportSelectorService;
 
         private BindingList<FlightView> _flightsView;
@@ -28,10 +28,10 @@ namespace BetterArs.Presenters {
         private bool _sortByDestination = false;
         private int _destinationId = 0;
 
-        public AvailabilityPresenter(IApplicationController controller, IAvailabilityView view /*, IMessageService messageService*/, IAirportSelectorService airportSelectorService) {
+        public AvailabilityPresenter(IApplicationController controller, IAvailabilityView view , IMessageService messageService, IAirportSelectorService airportSelectorService) {
             _controller = controller;
             _view = view;
-            //_messageService = messageService;
+            _messageService = messageService;
             _airportSelectorService = airportSelectorService;
 
             _view.OriginCodeChanged += OriginCodeChanged;
@@ -50,6 +50,13 @@ namespace BetterArs.Presenters {
             _view.RemoveFlightButtonPressed += RemoveFlightButtonPressed;
 
             _view.ViewPNRTable += ViewPNRTable;
+            _view.ViewPlanesTable += ViewPlanesTable;
+
+            Refresh();
+        }
+
+        private void ViewPlanesTable() {
+            _controller.Run<PlanesTablePresenter>();
 
             Refresh();
         }
@@ -73,6 +80,14 @@ namespace BetterArs.Presenters {
         }
 
         private void RemoveFlightButtonPressed() {
+            if (_view.SelectedFlightId == 0) {
+                _messageService.PrintError("Необходимо сначала выбрать рейс");
+
+                return;
+            }
+
+            if (!_messageService.RequestConfirmation("Удалить выбранный рейс")) return;
+
             using (ArsContext db = new ArsContext()) {
                 var flightDoDelete = db.Flights.Find(_view.SelectedFlightId);
 
@@ -99,11 +114,8 @@ namespace BetterArs.Presenters {
 
                     if (result == DialogResult.Cancel) return;
 
-                    result = MessageBox.Show("Вы уверены, что хотите удалить оформленные на этот рейс билеты?",
-                                "Подтверждение действия",
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    
-                    if (result == DialogResult.No) return;
+
+                    if (!_messageService.RequestConfirmation("Удалить оформленные на этот рейс билеты")) return;
 
                     foreach (var ticket in referencingTickets) {
                         db.Tickets.Remove(ticket);

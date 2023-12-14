@@ -19,6 +19,7 @@ namespace BetterArs.Views.Interfaces {
         string PassengerLastName { get; set; }
         string PassengerPhone { get; set; }
         string PassengerEmail { get; set; }
+        DateTime PassengerBirthDate { get; set; }
 
         // Seats
         int SeatClass { get; }

@@ -34,12 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this._passengerLastNameTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this._birthDatePicker = new System.Windows.Forms.DateTimePicker();
             this._unpaidInvoiceLabel = new System.Windows.Forms.Label();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._payInvoiceButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this._birthDatePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,6 +169,26 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(515, 79);
             this.tableLayoutPanel3.TabIndex = 14;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(248, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Дата рождения:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _birthDatePicker
+            // 
+            this._birthDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._birthDatePicker.Location = new System.Drawing.Point(343, 29);
+            this._birthDatePicker.Name = "_birthDatePicker";
+            this._birthDatePicker.Size = new System.Drawing.Size(169, 20);
+            this._birthDatePicker.TabIndex = 14;
+            // 
             // _unpaidInvoiceLabel
             // 
             this._unpaidInvoiceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -214,26 +234,6 @@
             this._payInvoiceButton.UseVisualStyleBackColor = true;
             this._payInvoiceButton.Visible = false;
             this._payInvoiceButton.Click += new System.EventHandler(this._payInvoiceButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(248, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Дата рождения:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _birthDatePicker
-            // 
-            this._birthDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._birthDatePicker.Location = new System.Drawing.Point(343, 29);
-            this._birthDatePicker.Name = "_birthDatePicker";
-            this._birthDatePicker.Size = new System.Drawing.Size(169, 20);
-            this._birthDatePicker.TabIndex = 14;
             // 
             // EditPNRForm
             // 

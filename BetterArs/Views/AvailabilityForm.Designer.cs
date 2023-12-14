@@ -52,8 +52,9 @@
             this._editButton = new System.Windows.Forms.Button();
             this._deleteButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this._showAllButton = new System.Windows.Forms.Button();
             this._pnrButton = new System.Windows.Forms.Button();
+            this._showAllButton = new System.Windows.Forms.Button();
+            this._planesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._flightsGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -323,6 +324,7 @@
             this.flowLayoutPanel1.Controls.Add(this._deleteButton);
             this.flowLayoutPanel1.Controls.Add(this.label6);
             this.flowLayoutPanel1.Controls.Add(this._pnrButton);
+            this.flowLayoutPanel1.Controls.Add(this._planesButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 465);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(791, 29);
@@ -381,6 +383,16 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "|";
             // 
+            // _pnrButton
+            // 
+            this._pnrButton.Location = new System.Drawing.Point(526, 3);
+            this._pnrButton.Name = "_pnrButton";
+            this._pnrButton.Size = new System.Drawing.Size(75, 23);
+            this._pnrButton.TabIndex = 15;
+            this._pnrButton.Text = "PNR";
+            this._pnrButton.UseVisualStyleBackColor = true;
+            this._pnrButton.Click += new System.EventHandler(this._pnrButton_Click);
+            // 
             // _showAllButton
             // 
             this._showAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -392,15 +404,15 @@
             this._showAllButton.UseVisualStyleBackColor = true;
             this._showAllButton.Click += new System.EventHandler(this._showAllButton_Click);
             // 
-            // _pnrButton
+            // _planesButton
             // 
-            this._pnrButton.Location = new System.Drawing.Point(526, 3);
-            this._pnrButton.Name = "_pnrButton";
-            this._pnrButton.Size = new System.Drawing.Size(75, 23);
-            this._pnrButton.TabIndex = 15;
-            this._pnrButton.Text = "PNR";
-            this._pnrButton.UseVisualStyleBackColor = true;
-            this._pnrButton.Click += new System.EventHandler(this._pnrButton_Click);
+            this._planesButton.Location = new System.Drawing.Point(607, 3);
+            this._planesButton.Name = "_planesButton";
+            this._planesButton.Size = new System.Drawing.Size(75, 23);
+            this._planesButton.TabIndex = 16;
+            this._planesButton.Text = "Авиапарк";
+            this._planesButton.UseVisualStyleBackColor = true;
+            this._planesButton.Click += new System.EventHandler(this._planesButton_Click);
             // 
             // AvailabilityForm
             // 
@@ -460,5 +472,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button _showAllButton;
         private System.Windows.Forms.Button _pnrButton;
+        private System.Windows.Forms.Button _planesButton;
     }
 }

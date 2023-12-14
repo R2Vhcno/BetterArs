@@ -70,6 +70,7 @@ namespace BetterArs.Presenters {
                     newPassenger.LastName = _view.PassengerLastName;
                     newPassenger.Phone = _view.PassengerPhone;
                     newPassenger.Email = _view.PassengerEmail;
+                    newPassenger.BirthDate = _view.PassengerBirthDate;
 
                     passenger = db.Passengers.Add(newPassenger);
                     db.SaveChanges();
@@ -93,6 +94,8 @@ namespace BetterArs.Presenters {
 
                 db.SaveChanges();
             }
+
+            DisplayAvailableSeats();
         }
 
         private void OnBookPressed() {

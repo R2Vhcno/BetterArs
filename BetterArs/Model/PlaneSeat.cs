@@ -22,9 +22,9 @@ namespace BetterArs.Model
     
         public int Id { get; set; }
         public int PlaneId { get; set; }
-        public string Name { get; set; }
         public Nullable<int> ClassId { get; set; }
         public decimal Fare { get; set; }
+        public string SeatName { get; set; }
     
         public virtual Class Class { get; set; }
         public virtual Plane Plane { get; set; }

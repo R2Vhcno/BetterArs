@@ -24,18 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this._passengerPhoneTextBox = new System.Windows.Forms.TextBox();
-            this._passengerEmailTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this._passengerNameTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this._passengerSurnameTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this._passengerLastNameTextBox = new System.Windows.Forms.TextBox();
             this._passengerIdTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this._newRecordRadioButton = new System.Windows.Forms.RadioButton();
@@ -52,26 +40,35 @@
             this._cancelButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this._seatsDataGridView = new System.Windows.Forms.DataGridView();
-            this.SeatName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SeatFare = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._seatsClassesComboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.SeatName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeatFare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this._passengerEmailTextBox = new System.Windows.Forms.TextBox();
+            this._passengerPhoneTextBox = new System.Windows.Forms.TextBox();
+            this._passengerNameTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this._passengerSurnameTextBox = new System.Windows.Forms.TextBox();
+            this._passengerLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this._birthDatePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._seatsDataGridView)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Controls.Add(this._passengerLastNameTextBox);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel3);
             this.groupBox1.Controls.Add(this._passengerIdTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this._newRecordRadioButton);
@@ -82,152 +79,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Пассажир";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this._passengerPhoneTextBox, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this._passengerEmailTextBox, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(43, 156);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(486, 26);
-            this.tableLayoutPanel2.TabIndex = 9;
-            // 
-            // _passengerPhoneTextBox
-            // 
-            this._passengerPhoneTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._passengerPhoneTextBox.Location = new System.Drawing.Point(64, 3);
-            this._passengerPhoneTextBox.Name = "_passengerPhoneTextBox";
-            this._passengerPhoneTextBox.Size = new System.Drawing.Size(172, 20);
-            this._passengerPhoneTextBox.TabIndex = 8;
-            this._passengerPhoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this._passengerPhoneTextBox_Validating);
-            // 
-            // _passengerEmailTextBox
-            // 
-            this._passengerEmailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._passengerEmailTextBox.Location = new System.Drawing.Point(310, 3);
-            this._passengerEmailTextBox.Name = "_passengerEmailTextBox";
-            this._passengerEmailTextBox.Size = new System.Drawing.Size(173, 20);
-            this._passengerEmailTextBox.TabIndex = 7;
-            this._passengerEmailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this._passengerEmailTextBox_Validating);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(247, 0);
-            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 26);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Эл. почта:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 26);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Телефон:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Отчество:";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this._passengerNameTextBox, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this._passengerSurnameTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(43, 98);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(486, 26);
-            this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // _passengerNameTextBox
-            // 
-            this._passengerNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._passengerNameTextBox.Location = new System.Drawing.Point(300, 3);
-            this._passengerNameTextBox.Name = "_passengerNameTextBox";
-            this._passengerNameTextBox.Size = new System.Drawing.Size(183, 20);
-            this._passengerNameTextBox.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(262, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 26);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Имя:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _passengerSurnameTextBox
-            // 
-            this._passengerSurnameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._passengerSurnameTextBox.Location = new System.Drawing.Point(68, 3);
-            this._passengerSurnameTextBox.Name = "_passengerSurnameTextBox";
-            this._passengerSurnameTextBox.Size = new System.Drawing.Size(183, 20);
-            this._passengerSurnameTextBox.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 26);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Фамилия:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _passengerLastNameTextBox
-            // 
-            this._passengerLastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._passengerLastNameTextBox.Location = new System.Drawing.Point(102, 130);
-            this._passengerLastNameTextBox.Name = "_passengerLastNameTextBox";
-            this._passengerLastNameTextBox.Size = new System.Drawing.Size(424, 20);
-            this._passengerLastNameTextBox.TabIndex = 6;
             // 
             // _passengerIdTextBox
             // 
@@ -345,7 +196,7 @@
             // _bookButton
             // 
             this._bookButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._bookButton.Location = new System.Drawing.Point(477, 496);
+            this._bookButton.Location = new System.Drawing.Point(477, 486);
             this._bookButton.Name = "_bookButton";
             this._bookButton.Size = new System.Drawing.Size(75, 23);
             this._bookButton.TabIndex = 7;
@@ -356,7 +207,7 @@
             // _bookAndContinueButton
             // 
             this._bookAndContinueButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._bookAndContinueButton.Location = new System.Drawing.Point(325, 496);
+            this._bookAndContinueButton.Location = new System.Drawing.Point(325, 486);
             this._bookAndContinueButton.Name = "_bookAndContinueButton";
             this._bookAndContinueButton.Size = new System.Drawing.Size(146, 23);
             this._bookAndContinueButton.TabIndex = 8;
@@ -367,7 +218,7 @@
             // _cancelButton
             // 
             this._cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._cancelButton.Location = new System.Drawing.Point(245, 496);
+            this._cancelButton.Location = new System.Drawing.Point(245, 486);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 9;
@@ -407,25 +258,11 @@
             this._seatsDataGridView.Size = new System.Drawing.Size(523, 177);
             this._seatsDataGridView.TabIndex = 2;
             // 
-            // SeatName
-            // 
-            this.SeatName.DataPropertyName = "Name";
-            this.SeatName.HeaderText = "Имя";
-            this.SeatName.Name = "SeatName";
-            this.SeatName.ReadOnly = true;
-            // 
-            // SeatFare
-            // 
-            this.SeatFare.DataPropertyName = "Fare";
-            this.SeatFare.HeaderText = "Такса";
-            this.SeatFare.Name = "SeatFare";
-            this.SeatFare.ReadOnly = true;
-            // 
             // _seatsClassesComboBox
             // 
             this._seatsClassesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._seatsClassesComboBox.DisplayMember = "Name";
+            this._seatsClassesComboBox.DisplayMember = "ClassName";
             this._seatsClassesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._seatsClassesComboBox.FormattingEnabled = true;
             this._seatsClassesComboBox.Location = new System.Drawing.Point(53, 19);
@@ -444,11 +281,171 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Класс:";
             // 
+            // SeatName
+            // 
+            this.SeatName.DataPropertyName = "SeatName";
+            this.SeatName.HeaderText = "Имя";
+            this.SeatName.Name = "SeatName";
+            this.SeatName.ReadOnly = true;
+            // 
+            // SeatFare
+            // 
+            this.SeatFare.DataPropertyName = "Fare";
+            this.SeatFare.HeaderText = "Такса";
+            this.SeatFare.Name = "SeatFare";
+            this.SeatFare.ReadOnly = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.label2, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this._passengerEmailTextBox, 3, 2);
+            this.tableLayoutPanel3.Controls.Add(this._passengerPhoneTextBox, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this._passengerNameTextBox, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this._passengerSurnameTextBox, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this._passengerLastNameTextBox, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label4, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label6, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label5, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label9, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this._birthDatePicker, 3, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(9, 98);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(515, 79);
+            this.tableLayoutPanel3.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(248, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Дата рождения:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _passengerEmailTextBox
+            // 
+            this._passengerEmailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._passengerEmailTextBox.Location = new System.Drawing.Point(343, 55);
+            this._passengerEmailTextBox.Name = "_passengerEmailTextBox";
+            this._passengerEmailTextBox.Size = new System.Drawing.Size(169, 20);
+            this._passengerEmailTextBox.TabIndex = 7;
+            // 
+            // _passengerPhoneTextBox
+            // 
+            this._passengerPhoneTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._passengerPhoneTextBox.Location = new System.Drawing.Point(68, 55);
+            this._passengerPhoneTextBox.Name = "_passengerPhoneTextBox";
+            this._passengerPhoneTextBox.Size = new System.Drawing.Size(169, 20);
+            this._passengerPhoneTextBox.TabIndex = 8;
+            // 
+            // _passengerNameTextBox
+            // 
+            this._passengerNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._passengerNameTextBox.Location = new System.Drawing.Point(343, 3);
+            this._passengerNameTextBox.Name = "_passengerNameTextBox";
+            this._passengerNameTextBox.Size = new System.Drawing.Size(169, 20);
+            this._passengerNameTextBox.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Фамилия:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _passengerSurnameTextBox
+            // 
+            this._passengerSurnameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._passengerSurnameTextBox.Location = new System.Drawing.Point(68, 3);
+            this._passengerSurnameTextBox.Name = "_passengerSurnameTextBox";
+            this._passengerSurnameTextBox.Size = new System.Drawing.Size(169, 20);
+            this._passengerSurnameTextBox.TabIndex = 5;
+            // 
+            // _passengerLastNameTextBox
+            // 
+            this._passengerLastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._passengerLastNameTextBox.Location = new System.Drawing.Point(68, 29);
+            this._passengerLastNameTextBox.Name = "_passengerLastNameTextBox";
+            this._passengerLastNameTextBox.Size = new System.Drawing.Size(169, 20);
+            this._passengerLastNameTextBox.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(305, 6);
+            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Имя:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Телефон:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(280, 59);
+            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Эл. почта:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(5, 32);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Отчество:";
+            // 
+            // _birthDatePicker
+            // 
+            this._birthDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._birthDatePicker.Location = new System.Drawing.Point(343, 29);
+            this._birthDatePicker.Name = "_birthDatePicker";
+            this._birthDatePicker.Size = new System.Drawing.Size(169, 20);
+            this._birthDatePicker.TabIndex = 14;
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 531);
+            this.ClientSize = new System.Drawing.Size(564, 521);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._bookAndContinueButton);
@@ -465,15 +462,13 @@
             this.Text = "Оформление билета";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._seatsDataGridView)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,17 +480,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton _newRecordRadioButton;
         private System.Windows.Forms.RadioButton _infoFromDbRadioButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox _passengerNameTextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _passengerSurnameTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _passengerLastNameTextBox;
         private System.Windows.Forms.TextBox _passengerIdTextBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox _flightIdTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -510,9 +495,20 @@
         private System.Windows.Forms.DataGridView _seatsDataGridView;
         private System.Windows.Forms.ComboBox _seatsClassesComboBox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox _passengerEmailTextBox;
-        private System.Windows.Forms.TextBox _passengerPhoneTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn SeatName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SeatFare;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox _passengerEmailTextBox;
+        private System.Windows.Forms.TextBox _passengerPhoneTextBox;
+        private System.Windows.Forms.TextBox _passengerNameTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox _passengerSurnameTextBox;
+        private System.Windows.Forms.TextBox _passengerLastNameTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker _birthDatePicker;
     }
 }

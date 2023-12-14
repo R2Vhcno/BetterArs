@@ -1,4 +1,5 @@
 ﻿using BetterArs.Model;
+using BetterArs.Services.Interfaces;
 using BetterArs.Utility;
 using BetterArs.Utility.Ioc;
 using BetterArs.Views.Interfaces;
@@ -13,11 +14,13 @@ using System.Windows.Forms;
 namespace BetterArs.Presenters {
     public class TicketsTablePresenter : IPresenter {
         private readonly IApplicationController _controller;
+        private readonly IMessageService _messageService;
         private readonly ITicketsTableView _view;
 
-        public TicketsTablePresenter(IApplicationController controller, ITicketsTableView view) {
+        public TicketsTablePresenter(IApplicationController controller, ITicketsTableView view, IMessageService messageService = null) {
             _controller = controller;
             _view = view;
+            _messageService = messageService;
 
             _view.SearchButtonPressed += SearchButtonPressed;
             _view.DeleteButtonPressed += DeleteButtonPressed;
@@ -34,10 +37,12 @@ namespace BetterArs.Presenters {
         }
 
         private void CleanupButtonPressed() {
-            MessageBox.Show("Я пока ёще не уверен, стоит ли добавлять подобный функционал, и где разместить эту кнопку");
+            _messageService.PrintInfo("Я пока ёще не уверен, стоит ли добавлять подобный функционал, и где разместить эту кнопку");
         }
 
         private void DeleteButtonPressed() {
+            if (!_messageService.RequestConfirmation("Удалить выбранную запись")) return;
+
             using (ArsContext db = new ArsContext()) {
                 var ticketToRemove = db.Tickets.Find(_view.SelectedPNR.TicketId);
 

@@ -109,6 +109,11 @@ namespace BetterArs.Views {
             }
         }
 
+        public DateTime PassengerBirthDate {
+            get => _birthDatePicker.Value;
+            set => _birthDatePicker.Value = value;
+        }
+
         private void _passengerIdTextBox_Validating(object sender, CancelEventArgs e) {
 
             if (int.TryParse(_passengerIdTextBox.Text, out int value)) {

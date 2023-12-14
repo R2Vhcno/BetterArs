@@ -18,7 +18,7 @@ namespace BetterArs {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new MainForm()); // Not needed in MVP
+            SplashForm.ShowSplash();
 
             var controller = new ApplicationController(new LightInjectAdapter())
                 .RegisterView<IAvailabilityView, AvailabilityForm>()
@@ -26,6 +26,8 @@ namespace BetterArs {
                 .RegisterView<IEditFlightView, EditFlightForm>()
                 .RegisterView<ITicketsTableView, TicketsTableForm>()
                 .RegisterView<IEditPNRView, EditPNRForm>()
+                .RegisterView<IPlanesTableView, PlanesTableForm>()
+                .RegisterView<IEditPlaneView, EditPlaneForm>()
                 .RegisterService<IMessageService, MessageService>()
                 .RegisterService<IAirportSelectorService, AirportSelectorService>()
                 .RegisterInstance(new ApplicationContext());

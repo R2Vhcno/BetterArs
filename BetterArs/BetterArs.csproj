@@ -132,7 +132,9 @@
     <Compile Include="Presenters\AvailabilityPresenter.cs" />
     <Compile Include="Presenters\BookPresenter.cs" />
     <Compile Include="Presenters\EditFlightPresenter.cs" />
+    <Compile Include="Presenters\EditPlanePresenter.cs" />
     <Compile Include="Presenters\EditPNRPresenter.cs" />
+    <Compile Include="Presenters\PlanesTablePresenter.cs" />
     <Compile Include="Presenters\TicketsTablePresenter.cs" />
     <Compile Include="Services\AirportSelectorService.cs" />
     <Compile Include="Services\Interfaces\IAirportSelectorService.cs" />
@@ -188,8 +190,22 @@
       <DependentUpon>AirportSelectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Interfaces\IEditFlightView.cs" />
+    <Compile Include="Views\Interfaces\IEditPlaneView.cs" />
     <Compile Include="Views\Interfaces\IEditPNRView.cs" />
+    <Compile Include="Views\Interfaces\IPlanesTableView.cs" />
     <Compile Include="Views\Interfaces\ITicketsTableView.cs" />
+    <Compile Include="Views\PlanesTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PlanesTableForm.Designer.cs">
+      <DependentUpon>PlanesTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TicketsTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +238,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditPNRForm.resx">
       <DependentUpon>EditPNRForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlanesTableForm.resx">
+      <DependentUpon>PlanesTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TicketsTableForm.resx">
       <DependentUpon>TicketsTableForm.cs</DependentUpon>

@@ -83,6 +83,7 @@ namespace BetterArs.Views {
         public event Action EditFlightButtonPressed;
         public event Action RemoveFlightButtonPressed;
         public event Action ViewPNRTable;
+        public event Action ViewPlanesTable;
 
         public int SelectedFlightId {
             get {
@@ -123,6 +124,10 @@ namespace BetterArs.Views {
         private void AvailabilityForm_Load(object sender, EventArgs e) {
             _flightsGridView.AutoGenerateColumns = false;
             _flightsGridView.DataSource = _flightsBindingSource;
+
+            SplashForm.CloseSplash();
+
+            Activate();
         }
 
         private void _originCodeTextBox_Click(object sender, EventArgs e) {
@@ -155,6 +160,10 @@ namespace BetterArs.Views {
 
         private void _pnrButton_Click(object sender, EventArgs e) {
             ViewPNRTable();
+        }
+
+        private void _planesButton_Click(object sender, EventArgs e) {
+            ViewPlanesTable();
         }
     }
 }

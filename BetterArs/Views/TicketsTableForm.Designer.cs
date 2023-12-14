@@ -247,6 +247,7 @@
             // _intelligentCleaningButton
             // 
             this._intelligentCleaningButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._intelligentCleaningButton.Enabled = false;
             this._intelligentCleaningButton.Location = new System.Drawing.Point(213, 415);
             this._intelligentCleaningButton.Name = "_intelligentCleaningButton";
             this._intelligentCleaningButton.Size = new System.Drawing.Size(203, 23);
