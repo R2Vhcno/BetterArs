@@ -13,10 +13,9 @@ using System.Windows.Forms;
 namespace BetterArs.Presenters {
     public class BookPresenter : IPresenter<int> {
         private readonly IBookView _view;
+        private IMessageService _messageService;
 
         private Flight _selectedFlight;
-
-        private IMessageService _messageService;
 
         public BookPresenter(IBookView view, IMessageService messageService) {
             _view = view;
@@ -94,6 +93,8 @@ namespace BetterArs.Presenters {
 
                 db.SaveChanges();
             }
+
+            _messageService.PrintInfo("Билет оформлен");
 
             DisplayAvailableSeats();
         }
